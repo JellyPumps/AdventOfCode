@@ -3,7 +3,7 @@ from more_itertools import split_at
 group=[]
 
 #Open and read
-with open("input.txt") as file:
+with open("../inputs/day_1_input.txt") as file:
     for line in file:
         group.append(line)
 
