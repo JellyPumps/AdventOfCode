@@ -4,7 +4,6 @@ testInp  = open("2022/inputs/test.txt")
 ovrcnt=0
 rnovrcnt=0
 inlist=[]
-flatten = lambda *n: (e for a in n for e in (flatten(*a) if isinstance(a, (tuple, list)) else (a,)))
 
 while True:
     line=aocdInp.readline()
