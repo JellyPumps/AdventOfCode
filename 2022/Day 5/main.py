@@ -41,7 +41,14 @@ for i in range(len(instructions)):
     numberToMove=int(instructions[i][0])
     moveFromStck=int(instructions[i][1])-1
     stckDestintn=int(instructions[i][2])-1
-    print(numberToMove,moveFromStck,stckDestintn)
-
+    for x in range(numberToMove):  
+        print("x")      
+        for cargo in stacks[moveFromStck]:
+            if cargo != 'x':
+                indx=stacks[moveFromStck].index(cargo)
+                for cargo_x in stacks[stckDestintn]:
+                    if cargo_x != 'x':
+                        indy=stacks[stckDestintn].index(cargo_x)-1
+                        stacks[moveFromStck][indx] #keeps printing 'x'?
 print(stacks)
 print("Number of stacks:",noStacks)
