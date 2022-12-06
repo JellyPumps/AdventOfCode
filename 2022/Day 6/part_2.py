@@ -17,7 +17,7 @@ for c in range(len(spliced)):
     for e in temp:
         tmpstr+=e
     if len(set(tmpstr))==len(tmpstr):
-        tmpc=tmpstr[-1]; processed=tmpstr.index(tmpc)+1+count; break
+        processed=3+1+count; break
     count+=1
 
 print(processed)
