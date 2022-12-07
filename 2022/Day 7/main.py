@@ -14,4 +14,5 @@ file.close()
 for command in cmds: cmd.parse_commands(command)
 
 print("Part 1:",sum([s for s in cmd.fsize.values() if s<=100000]))
-print(cmd.fsize.values())
+freespace=70000000-cmd.fsize[('/')]
+print("Part 2:",min([s for s in cmd.fsize.values() if s+freespace>=30000000]))

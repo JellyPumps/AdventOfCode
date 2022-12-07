@@ -17,4 +17,4 @@ def parse_item(size:str,file:str):
     fsize[tuple(struc)]+=int(size)
     path=struc[:-1]
     while path: fsize[tuple(path)]+=int(size); path.pop()
-freespace=70000000-fsize[('/')]
+
