@@ -1,4 +1,6 @@
 import System.IO
+import Data.Char (isDigit)
+import Data.Maybe (catMaybes)
 
 inputFile = "input.txt" :: [Char]
 
@@ -17,10 +19,23 @@ readInput path = do
     hClose handle
     return lines
 
-concatenateDigits :: String -> Int
-concatenateDigits line = 2 + 3
+concatenateDigits :: String -> Maybe Int
+concatenateDigits line =
+    let digits = filter isDigit line
+    in case digits of
+        [] -> Nothing
+        [x] -> Just (read [x,x])
+        (x:xs) -> case reverse xs of
+            [] -> Nothing
+            (y:_) -> Just (read [x,y])
+
+sumOfCalibration :: [Int] -> Int
+sumOfCalibration = sum
 
 main :: IO()
 main = do
     lines <- readInput inputFile
-    print lines
+    let maybeValues = map concatenateDigits lines
+    let calibrationValues = catMaybes maybeValues
+    let result = sumOfCalibration calibrationValues
+    print result
